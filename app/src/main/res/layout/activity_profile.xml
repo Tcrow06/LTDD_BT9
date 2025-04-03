@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/red"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="10dp"
+            android:src="@android:drawable/ic_menu_revert" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!-- Phần Tiêu đề + Ảnh đại diện (1 phần) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hồ sơ cá nhân"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/thinh"
+            android:scaleType="centerCrop"
+            android:background="@android:color/darker_gray"
+            android:padding="2dp"
+            android:clipToOutline="true"/>
+    </LinearLayout>
+
+    <!-- Phần Thông tin cá nhân (1.5 phần) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textMaId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã ID: 3"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên đăng nhập: thinh"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/txtFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Họ tên: Lương Quang Thịnh"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Email: 22110428@student.hcmute.edu.vn"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/txtGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giới tính: Nam"
+            android:layout_margin="8dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+    <!-- Phần Nút đăng xuất (1 phần) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ĐĂNG XUẤT"
+            android:textSize="18sp"
+            android:backgroundTint="@color/red"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</LinearLayout>
