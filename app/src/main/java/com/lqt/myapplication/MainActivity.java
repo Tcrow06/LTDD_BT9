@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         btnGoToProfile = findViewById(R.id.btnGoToProfile);
         btnUploadFile = findViewById(R.id.bt);
 
-        // Navigate to ProfileActivity when the button is clicked
         btnGoToProfile.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);

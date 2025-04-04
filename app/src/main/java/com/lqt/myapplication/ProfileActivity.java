@@ -10,12 +10,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class ProfileActivity extends AppCompatActivity {
     private ImageView profileImage;
     private Button logoutButton;
     private ImageButton btnBack;
-    private ImageView avatarImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,27 +26,25 @@ public class ProfileActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
         btnBack = findViewById(R.id.btnBack);
 
-        // Quay lại màn hình trước đó
         btnBack.setOnClickListener(v -> finish());
 
         PreferenceManager preferenceManager = new PreferenceManager(this);
         String imgUrl = preferenceManager.getUserImageUrl();
 
-        if (imgUrl != null && !imgUrl.isEmpty()) {
-            Glide.with(this)
-                    .load(imgUrl)
-                    .placeholder(R.drawable.ic_user) // Ảnh chờ khi tải
-                    .error(R.drawable.ic_user) // Ảnh lỗi nếu tải thất bại
-                    .into(profileImage);
-        }
+        Glide.with(this)
+                .load(imgUrl)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .placeholder(R.drawable.ic_user)
+                .error(R.drawable.ic_user)
+                .into(profileImage);
 
-        // Nhấn vào ảnh đại diện để chọn ảnh mới
+
         profileImage.setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this, UploadFileActivity.class);
             startActivity(intent);
         });
 
-        // Xử lý đăng xuất
         logoutButton.setOnClickListener(v -> {
             Toast.makeText(this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
             finish();
